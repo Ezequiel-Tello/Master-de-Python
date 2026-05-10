@@ -20,7 +20,9 @@ for i in range(3):
         print("Usuario o contraseña invalida, intente nuevamente")
 print(" ")
 if bandera:
+    print("************************************************************")
     print("********************** MENÚ PRINCIPAL **********************")
+    print("************************************************************")
     print(" ")
     opcion = 0
     while opcion != 4:
@@ -57,28 +59,40 @@ if bandera:
         elif opcion == 2:
             nombre = input(
                 "Ingrese el nombre del producto a eliminar: ").title().strip()
+            print(" ")
             for i, prod in enumerate(inventario):
                 if prod['nombre'] == nombre:
                     inventario.pop(i)
-                    print("Producto eliminado")
+                    print(" ")
+                    print(
+                        "********************** PRODUCTO ELIMINADO **********************")
+                    print(" ")
                     break
             else:
                 print(" ")
-                print("*****Producto no encontrado*****")
+                print("******************** PRODUCTO NO ENCONTRADO ********************")
                 print(" ")
         elif opcion == 3:
             if not inventario:
                 print(" ")
-                print("*****Inventario vacío*****")
+                print("*********************** INVENTARIO VACIO ***********************")
                 print(" ")
             else:
                 for prod in inventario:
-                    print(" ")
+                    print("*" * 30)
                     print(
-                        f"Nombre: {prod['nombre']}, Cantidad: {prod['cantidad']}, Precio: ${prod['precio']:.2f}, Valor total: ${prod['valor_total']:.2f}")
-                    print(" ")
+                        f"Nombre del producto               : {prod['nombre']}")
+                    print(
+                        f"Cantidad en stock                 : {prod['cantidad']}")
+                    print(
+                        f"Precio unitario                   : ${prod['precio']:.2f}")
+                    print(
+                        f"valor de inventario inicial       : ${prod['valor_total']:.2f}")
+                    print("*" * 30)
         elif opcion == 4:
-            print("Saliendo del programa...")
+            print(" ")
+            print("********************** PROGRAMA FINALIZADO **********************")
+            print(" ")
             break
         else:
             print("Opción inválida")
